@@ -2,7 +2,30 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+## Project Writeup & Refelections
+### Introduction
+This project repo contains the code for the PID-Controller project for SDC.
+This project requires the use of the Udacity Term 2 simulator among other dependencies that are listed below this writeup.
 
+### Project Reflections
+
+This project uses a single PID controller to control the steering angle of the simulated car. The coefficients PID stand for:
+
+1. Proportional coefficient P, which steers in proportion to the CTE.
+2. Integral coefficient I, which computes the sum integral of all CTEs to identify the systematic bias in a car.
+3. Derivative coefficient, which computes the differential to counter the car from oversteering beyond a desired trajectory.
+
+The above parameters were tuned manually after based on an initial valueset described in the lessons with Sebastian. As suggested in the project disucsison with David, I found that utilizing a larger Derivative coefficient with a relatively smaller proportional coefficient value resulted in the car completing multiple laps around the track without weaving too much from  center of the path. The final values used for the parameters are:
+
+1. P: 0.24
+2. I: 0.0002
+3. D: 3.0
+
+Next steps would be go ahead and implement the Twiddle algorithm and perhaps another PID controlled for vehicle speed.
+---
+## Original ReadMe Below
+
+---
 ## Dependencies
 
 * cmake >= 3.5
@@ -19,7 +42,7 @@ Self-Driving Car Engineer Nanodegree Program
   * Run either `./install-mac.sh` or `./install-ubuntu.sh`.
   * If you install from source, checkout to commit `e94b6e1`, i.e.
     ```
-    git clone https://github.com/uWebSockets/uWebSockets 
+    git clone https://github.com/uWebSockets/uWebSockets
     cd uWebSockets
     git checkout e94b6e1
     ```
@@ -33,7 +56,7 @@ There's an experimental patch for windows in this [PR](https://github.com/udacit
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./pid`. 
+4. Run it: `./pid`.
 
 ## Editor Settings
 
@@ -93,4 +116,3 @@ still be compilable with cmake and make./
 
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
-
